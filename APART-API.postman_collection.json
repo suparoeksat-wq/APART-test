@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "109265c7-977c-4065-a141-489416d9c4a3",
+    "name": "APART-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51763767",
+    "_collection_link": "https://go.postman.co/collection/51763767-109265c7-977c-4065-a141-489416d9c4a3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get_User_Success",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"ID is 12\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"12\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Email is rachel.howell@reqres.in\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"rachel.howell@reqres.in\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Firstname is Rachel\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"Rachel\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Lastname is Howell\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"Howell\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Avatar is Correct\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"https://reqres.in/img/faces/12-image.jpg\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "reqres_cbc6444120c7466191e3413d549ee0e7\n\n\n\n",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/12",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "12"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get_User_Not_Found",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "reqres_cbc6444120c7466191e3413d549ee0e7",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://reqres.in/api/users/1234",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "1234"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
